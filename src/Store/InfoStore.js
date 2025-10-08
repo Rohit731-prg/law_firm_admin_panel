@@ -25,6 +25,7 @@ const useInfoStore = create((set, get) => ({
             const res = await api.post("info/filterByType", { type });
             set({ infos: res.data?.info });
         } catch (error) {
+            set({ infos: null });
             console.error("Error fetching info:", error);
         }
     },
@@ -44,6 +45,7 @@ const useInfoStore = create((set, get) => ({
     },
 
     editInfo: async (id, updatedInfo) => {
+        console.log(id, updatedInfo);
         try {
             const res = api.put(`info/updateInfo/${id}`, updatedInfo);
             toast.promise(res, {
@@ -51,6 +53,7 @@ const useInfoStore = create((set, get) => ({
                 success: (r) => r.data.message || "Info updated successfully"
             });
             await res;
+            console.log(res);
             get().getAllInfos(updatedInfo.type);
         } catch (error) {
             toast.error(error.response?.data?.message || "Something went wrong");

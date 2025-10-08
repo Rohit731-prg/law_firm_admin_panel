@@ -5,11 +5,10 @@ import { MdDelete } from "react-icons/md";
 import { adminTable } from "../Utils/tableData";
 import useAdminStore from "../Store/AdminStore";
 import toast, { Toaster } from "react-hot-toast";
+import Swal from "sweetalert2";
 
 function Admin() {
-    const admins = useAdminStore((state) => state.admins);
-    const getAllAdmins = useAdminStore((state) => state.getAllAdmins);
-    const signUp = useAdminStore((state) => state.signUp);
+    const { deleteAdmin, signUp, getAllAdmins, admins } = useAdminStore();
 
     const [admin, setAdmin] = useState({
         first_name: "",
@@ -58,7 +57,21 @@ function Admin() {
         return admin.name.toLowerCase().includes(search.toLowerCase());
     });
 
-
+    const handelDelete = async (id) => {
+        const result = await Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        });
+        console.log(result);
+        if (result.isConfirmed) {
+            await deleteAdmin(id);
+        }
+    }
     return (
         <main className="flex flex-row min-h-screen bg-gray-100 font-mulish">
             <Sidebar />
@@ -186,7 +199,7 @@ function Admin() {
 
                             <button
                                 type="submit"
-                                className="w-fit px-6 py-2 border border-navy-600 text-navy-700 rounded-lg hover:bg-black hover:text-white transition"
+                                className="w-full bg-black text-white px-6 py-2 rounded-lg"
                             >
                                 Add Admin
                             </button>
@@ -241,7 +254,9 @@ function Admin() {
                                                 <td className="px-2">{a.phone}</td>
                                                 <td className="px-2">{a.email}</td>
                                                 <td className="px-2">
-                                                    <button className="flex items-center gap-1 text-red-600 hover:text-red-800 transition">
+                                                    <button 
+                                                    onClick={() => handelDelete(a._id)}
+                                                    className="flex items-center gap-1 text-red-600 hover:text-red-800 transition">
                                                         <MdDelete /> Delete
                                                     </button>
                                                 </td>

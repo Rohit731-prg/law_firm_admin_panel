@@ -7,14 +7,14 @@ import useUserStore from '../Store/UserStore';
 import { usersTable } from '../Utils/tableData';
 import { FcOk, FcCancel } from "react-icons/fc";
 import EditProfile from './EditProfile';
-import useLeadsStore from '../Store/LeadStore';
+import Swal from "sweetalert2";
 
 function User() {
   const users = useUserStore((state) => state.users);
   const user = useUserStore((state) => state.user);
   const getAllUsers = useUserStore((state) => state.getAllUsers);
   const getUserDetailsByID = useUserStore((state) => state.getUserDetailsByID);
-  const terminateUser = useLeadsStore((state) => state.deleteUser);
+  const deleteUser = useUserStore((state) => state.deleteUser);
 
   const [search, setSearch] = useState('');
   const filteredUser = (users || []).filter((user) => (
@@ -42,6 +42,24 @@ function User() {
       window.URL.revokeObjectURL(fileURL);
     } catch (error) {
       console.error("Error downloading file:", error);
+    }
+  }
+
+  const handelDeleteUser = async (id) => {
+    const result = await Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    });
+
+    if (result.isConfirmed) {
+      await deleteUser(id);
+      
+      await getAllUsers();
     }
   }
 
@@ -220,7 +238,7 @@ function User() {
 
                 <div>
                   <button
-                    onClick={() => terminateUser(user._id)}
+                    onClick={() => handelDeleteUser(user._id)}
                     className='mt-5 py-2 text-xl bg-red-400 px-5 rounded-sm text-white font-semibold active:scale-96 transition-all'
                   >
                     Terminate User

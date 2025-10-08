@@ -71,16 +71,13 @@ function Info() {
               Add a New External Information Source
             </p>
 
-            <form
-              className="space-y-6 bg-white rounded-2xl p-6"
-              onSubmit={handelSubmit}
-            >
+            <form className="space-y-4" onSubmit={handelSubmit}>
               {/* State */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Select a State</label>
+              <div className="flex flex-col">
+                <label className="text-sm text-gray-600 mb-1">Select a State</label>
                 <select
                   onChange={(e) => setInfo(e.target.value, "state")}
-                  className="w-full bg-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-black"
+                  className="border border-gray-300 px-3 py-2 rounded-lg focus:ring-2 focus:ring-black outline-none"
                 >
                   <option value="">Select a State</option>
                   {infoDetails.map((state) => (
@@ -92,11 +89,11 @@ function Info() {
               </div>
 
               {/* District */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Select a District</label>
+              <div className="flex flex-col">
+                <label className="text-sm text-gray-600 mb-1">Select a District</label>
                 <select
                   onChange={(e) => setInfo(e.target.value, "district")}
-                  className="w-full bg-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-black"
+                  className="border border-gray-300 px-3 py-2 rounded-lg focus:ring-2 focus:ring-black outline-none"
                 >
                   <option value="">Select a District</option>
                   {distritc &&
@@ -109,28 +106,30 @@ function Info() {
               </div>
 
               {/* Sub Division */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Select a Sub Division</label>
+              <div className="flex flex-col">
+                <label className="text-sm text-gray-600 mb-1">Select a Sub Division</label>
                 <select
                   onChange={(e) => setInfo(e.target.value, "sub_divition")}
-                  className="w-full bg-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-black"
+                  className="border border-gray-300 px-3 py-2 rounded-lg focus:ring-2 focus:ring-black outline-none"
                 >
                   <option value="">Select a Sub Division</option>
                   {sub_divition &&
-                    sub_divition.map((sub_divition, index) => (
-                      <option key={index} value={sub_divition.name}>
-                        {sub_divition.name}
+                    sub_divition.map((sub, index) => (
+                      <option key={index} value={sub.name}>
+                        {sub.name}
                       </option>
                     ))}
                 </select>
               </div>
 
               {/* Police Station */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Select a Police Station</label>
+              <div className="flex flex-col">
+                <label className="text-sm text-gray-600 mb-1">Select a Police Station</label>
                 <select
-                  onChange={(e) => setInfoDetailsState({ ...infoDetailsState, police_station: e.target.value })}
-                  className="w-full bg-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-black"
+                  onChange={(e) =>
+                    setInfoDetailsState({ ...infoDetailsState, police_station: e.target.value })
+                  }
+                  className="border border-gray-300 px-3 py-2 rounded-lg focus:ring-2 focus:ring-black outline-none"
                 >
                   <option value="">Select a Police Station</option>
                   {police_station &&
@@ -143,15 +142,13 @@ function Info() {
               </div>
 
               {/* Data Type */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Select which data you want to add
-                </label>
+              <div className="flex flex-col">
+                <label className="text-sm text-gray-600 mb-1">Select Data Type</label>
                 <select
                   onChange={(e) =>
                     setInfoDetailsState({ ...infoDetailsState, type: e.target.value })
                   }
-                  className="w-full bg-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-black"
+                  className="border border-gray-300 px-3 py-2 rounded-lg focus:ring-2 focus:ring-black outline-none"
                 >
                   <option value="">Select Data</option>
                   {infoTypes.map((infoType) => (
@@ -163,10 +160,10 @@ function Info() {
               </div>
 
               {/* Name */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+              <div className="flex flex-col">
+                <label className="text-sm text-gray-600 mb-1">Name</label>
                 <input
-                  className="w-full bg-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-black"
+                  type="text"
                   placeholder="Enter Name"
                   value={infoDetailsState.basic_info.name}
                   onChange={(e) =>
@@ -175,17 +172,15 @@ function Info() {
                       basic_info: { ...infoDetailsState.basic_info, name: e.target.value },
                     })
                   }
-                  type="text"
+                  className="border border-gray-300 px-3 py-2 rounded-lg focus:ring-2 focus:ring-black outline-none"
                 />
               </div>
 
               {/* Mobile Number */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Mobile Number
-                </label>
+              <div className="flex flex-col">
+                <label className="text-sm text-gray-600 mb-1">Mobile Number</label>
                 <input
-                  className="w-full bg-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-black"
+                  type="text"
                   placeholder="Enter Mobile Number"
                   value={infoDetailsState.basic_info.number}
                   onChange={(e) =>
@@ -194,16 +189,16 @@ function Info() {
                       basic_info: { ...infoDetailsState.basic_info, number: e.target.value },
                     })
                   }
-                  type="text"
+                  className="border border-gray-300 px-3 py-2 rounded-lg focus:ring-2 focus:ring-black outline-none"
                 />
               </div>
 
               {/* Address */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Address</label>
+              <div className="flex flex-col">
+                <label className="text-sm text-gray-600 mb-1">Address</label>
                 <input
+                  type="text"
                   placeholder="Enter Address"
-                  className="w-full bg-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-black"
                   value={infoDetailsState.basic_info.address}
                   onChange={(e) =>
                     setInfoDetailsState({
@@ -211,16 +206,16 @@ function Info() {
                       basic_info: { ...infoDetailsState.basic_info, address: e.target.value },
                     })
                   }
-                  type="text"
+                  className="border border-gray-300 px-3 py-2 rounded-lg focus:ring-2 focus:ring-black outline-none"
                 />
               </div>
 
               {/* Pincode */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Pincode</label>
+              <div className="flex flex-col">
+                <label className="text-sm text-gray-600 mb-1">Pincode</label>
                 <input
+                  type="text"
                   placeholder="Enter Pincode"
-                  className="w-full bg-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-black"
                   value={infoDetailsState.basic_info.pincode}
                   onChange={(e) =>
                     setInfoDetailsState({
@@ -228,11 +223,11 @@ function Info() {
                       basic_info: { ...infoDetailsState.basic_info, pincode: e.target.value },
                     })
                   }
-                  type="text"
+                  className="border border-gray-300 px-3 py-2 rounded-lg focus:ring-2 focus:ring-black outline-none"
                 />
               </div>
 
-              {/* Submit */}
+              {/* Submit Button */}
               <button
                 type="submit"
                 className="w-full bg-black text-white rounded-lg py-2 font-medium hover:bg-gray-900 transition"
@@ -240,6 +235,7 @@ function Info() {
                 Add Information
               </button>
             </form>
+
 
           </section>
 
@@ -254,47 +250,45 @@ function Info() {
                 ))}
               </div>
 
-              <table className="w-full text-left text-sm">
-                <thead className="bg-gray-100 text-gray-700 uppercase text-xs border-b">
-                  <tr>
-                    <th className="py-3 px-2">Name</th>
-                    <th className="py-3 px-2">Number</th>
-                    <th className="py-3 px-2">Address</th>
-                    <th className="py-3 px-2">State</th>
-                    <th className="py-3 px-2">District</th>
-                    <th className="py-3 px-2">Police Station</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {infos && infos.length ? (
-                    infos.map((info) => (
-                      <tr
-                        key={info._id}
-                        className="hover:bg-gray-50 cursor-pointer transition"
-                      >
-                        <td className="py-3 px-2">{info.basic_info?.name || "N/A"}</td>
-                        <td className="px-2">{info.basic_info?.number || "N/A"}</td>
-                        <td className="px-2">
-                          {info.basic_info?.address || "N/A"}
-                        </td>
-                        <td className="px-2">{info.state || "N/A"}</td>
-                        <td className="px-2">{info.district || "N/A"}</td>
-                        <td className="px-2">{info.police_station || "N/A"}</td>
-                      </tr>
-                    ))
-                  ) : (
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-gray-100 text-gray-700 uppercase text-xs border-b">
                     <tr>
-                      <td
-                        colSpan={6}
-                        className="text-center py-10 text-gray-500"
-                      >
-                        No Data Found
-                      </td>
+                      <th className="py-3 px-2">Name</th>
+                      <th className="py-3 px-2 text-right">Number</th>
+                      <th className="py-3 px-2">Address</th>
+                      <th className="py-3 px-2">State</th>
+                      <th className="py-3 px-2">District</th>
+                      <th className="py-3 px-2">Police Station</th>
                     </tr>
-                  )}
-                </tbody>
-              </table>
+                  </thead>
+
+                  <tbody>
+                    {infos && infos.length ? (
+                      infos.map((info) => (
+                        <tr
+                          key={info._id}
+                          className="hover:bg-gray-50 cursor-pointer transition duration-150 ease-in-out"
+                        >
+                          <td className="py-3 px-2">{info.basic_info?.name || "N/A"}</td>
+                          <td className="py-3 px-2 text-right">{info.basic_info?.number || "N/A"}</td>
+                          <td className="py-3 px-2">{info.basic_info?.address || "N/A"}</td>
+                          <td className="py-3 px-2">{info.state || "N/A"}</td>
+                          <td className="py-3 px-2">{info.district || "N/A"}</td>
+                          <td className="py-3 px-2">{info.police_station || "N/A"}</td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan={6} className="text-center py-10 text-gray-500">
+                          No Data Found
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+
 
             </div>
           </section>

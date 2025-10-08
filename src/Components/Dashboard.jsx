@@ -11,14 +11,7 @@ function Dashboard() {
           Track, manage, and convert your leads with ease
         </p>
         <main className='flex flex-col lg:flex-row gap-8'>
-            <section>
-              {dashboardList.map((ele) => (
-                <div key={ele.id}>
-                  <p>{ele.name}</p>
-                  
-                </div>
-              ))}
-            </section>
+            
         </main>
       </main>
     </main>

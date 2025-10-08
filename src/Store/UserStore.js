@@ -80,6 +80,22 @@ const useUserStore = create((set, get) => ({
             console.log(error);
         }
     },
+
+    deleteUser: async (id) => {
+        try {
+            const resPromise = api.delete(`user/deleteUser/${id}`);
+            toast.promise(resPromise, {
+                loading: "Deleting user...",
+                success: (res) => res.data.message || "User deleted",
+                // error: (err) => err.response?.data?.message || "Something went wrong",
+            });
+            await resPromise;
+            get().getAllUsers();
+            set({ user: null });
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Something went wrong");
+        }
+    }
 }));
 
 export default useUserStore;

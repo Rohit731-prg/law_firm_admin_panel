@@ -7,6 +7,7 @@ import { IoPin } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
 import { MdDelete, MdEditDocument } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Toaster } from 'react-hot-toast';
 
 
 function ListingInfo() {
@@ -33,7 +34,6 @@ function ListingInfo() {
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
         });
-
         if (result.isConfirmed) {
             await deleteInfo(id);
         }
@@ -93,23 +93,53 @@ function ListingInfo() {
                                     <input
                                         type="text"
                                         placeholder="Enter Name"
-                                        defaultValue={selectedItem?.basic_info?.name}
+                                        value={selectedItem?.basic_info?.name}
+                                        onChange={(e) => setSelectedItem({
+                                            ...selectedItem,
+                                            basic_info: {
+                                                ...selectedItem.basic_info,
+                                                name: e.target.value
+                                            }
+                                        })}
                                         className="w-full border border-gray-300 rounded-md p-2"
                                     />
                                     <input
                                         type="text"
+                                        onChange={(e) => setSelectedItem({
+                                            ...selectedItem,
+                                            basic_info: {
+                                                ...selectedItem.basic_info,
+                                                number: e.target.value
+                                            }
+                                        })}
+                                        value={selectedItem?.basic_info?.number}
                                         placeholder="Enter Number"
-                                        defaultValue={selectedItem?.basic_info?.number}
                                         className="w-full border border-gray-300 rounded-md p-2"
                                     />
                                     <input
                                         type="text"
+                                        onChange={(e) => setSelectedItem({
+                                            ...selectedItem,
+                                            basic_info: {
+                                                ...selectedItem.basic_info,
+                                                address: e.target.value
+                                            }
+                                        })}
+                                        value={selectedItem?.basic_info?.address}
                                         placeholder="Enter Address"
                                         defaultValue={selectedItem?.basic_info?.address}
                                         className="w-full border border-gray-300 rounded-md p-2"
                                     />
                                     <input
                                         type="text"
+                                        onChange={(e) => setSelectedItem({
+                                            ...selectedItem,
+                                            basic_info: {
+                                                ...selectedItem.basic_info,
+                                                pincode: e.target.value
+                                            }
+                                        })}
+                                        value={selectedItem?.basic_info?.pincode}
                                         placeholder="Enter Pincode"
                                         defaultValue={selectedItem?.basic_info?.pincode}
                                         className="w-full border border-gray-300 rounded-md p-2"
@@ -171,8 +201,8 @@ function ListingInfo() {
                                     ))}
                                 </tr>
                             </thead>
-
-                            <tbody>
+                            {infos ? (
+                                <tbody>
                                 {filteredInfos?.map((info, index) => (
                                     <tr
                                         key={index}
@@ -218,10 +248,14 @@ function ListingInfo() {
                                     </tr>
                                 ))}
                             </tbody>
+                            ) : (
+                                <p className="text-center my-5">No data found</p>
+                            )}
+                            
                         </table>
                     </section>
                 </div>
-
+                <Toaster />
             </main>
         </main>
     )

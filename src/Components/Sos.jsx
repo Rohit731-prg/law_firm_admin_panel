@@ -7,6 +7,7 @@ import { sosTable } from '../Utils/tableData';
 import { IoIosSend } from "react-icons/io";
 import { LuMailPlus } from "react-icons/lu";
 import { Toaster } from 'react-hot-toast';
+import Swal from 'sweetalert2';
 
 function Sos() {
     const getAllSos = useSosStore((state) => state.getAllSos);
@@ -27,6 +28,21 @@ function Sos() {
         updateSosStatus(sosE._id);
     }
 
+    const handelDelete = async(id) => {
+        const result = await Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        });
+
+        if (result.isConfirmed) {
+            await deleteSos(id);
+        }
+    }
     const [reply, setReply] = useState('');
     useEffect(() => {
         getAllSos();
@@ -218,7 +234,7 @@ function Sos() {
                                     </button>
                                 </footer>
                                 <button 
-                                onClick={() => deleteSos(SosData?._id)}
+                                onClick={() => handelDelete(selectedSos?._id)}
                                 className='mt-5 bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-700'>
                                     delete Sos
                                 </button>

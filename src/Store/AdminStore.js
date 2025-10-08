@@ -96,6 +96,21 @@ const useAdminStore = create(
                     console.log(error);
                     // toast.error(error.response?.data?.message || "Something went wrong");
                 }
+            },
+
+            deleteAdmin: async (adminId) => {
+                console.log(adminId);
+                try {
+                    const resPromise = api.delete(`admin/deleteAdmin/${adminId}`);
+                    toast.promise(resPromise, {
+                        loading: "Deleting admin...",
+                        success: (res) => res.data.message,
+                    });
+                    await resPromise;
+                    get().getAllAdmins();
+                } catch (error) {
+                    toast.error(error.response?.data?.message || "Something went wrong");
+                }
             }
         }),
         {
