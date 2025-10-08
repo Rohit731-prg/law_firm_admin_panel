@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Manufacturing+Consent&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=My+Soul&family=Oswald:wght@200..700&family=Playwrite+VN+Guides&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-dancing: "Dancing Script", cursive;
+  --font-lato: "Lato", sans-serif;
+  --font-manufacturing: "Manufacturing Consent", sans-serif;
+  --font-merriweather: "Merriweather", serif;
+  --font-mulish: "Mulish", sans-serif;
+  --font-mysoul: "My Soul", cursive;
+  --font-oswald: "Oswald", sans-serif;
+  --font-playwrite: "Playwrite VN Guides", cursive;
+}
