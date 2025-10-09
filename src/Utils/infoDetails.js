@@ -8427,7 +8427,7 @@ export const infoDetails = [
           {
             name: "Banda Urban",
             police_stations: ["Banda Urban PS 1", "Banda Urban PS 2"]
-         },
+          },
           {
             name: "Banda Rural",
             police_stations: ["Banda Rural PS 1", "Banda Rural PS 2"]
@@ -9418,305 +9418,385 @@ export const infoDetails = [
     ]
   },
   {
-    id: 28,
-    state: "West Bengal",
-    districts: [
+    "id": 28,
+    "state": "West Bengal",
+    "districts": [
       {
-        name: "Alipurduar",
-        sub_divitions: [
+        "name": "Alipurduar",
+        "sub_divitions": [
           {
-            name: "Alipurduar Urban",
-            police_stations: ["Alipurduar Urban PS 1", "Alipurduar Urban PS 2"]
-          },
-          {
-            name: "Alipurduar Rural",
-            police_stations: ["Alipurduar Rural PS 1", "Alipurduar Rural PS 2"]
+            "name": "Alipurduar Sadar",
+            "police_stations": ["Alipurduar", "Birpara", "Falakata", "Jaigaon", "Kalchini", "Kumargram", "Madarihat", "Samuktala"]
           }
         ]
       },
       {
-        name: "Bankura",
-        sub_divitions: [
+        "name": "Bankura",
+        "sub_divitions": [
           {
-            name: "Bankura Urban",
-            police_stations: ["Bankura Urban PS 1", "Bankura Urban PS 2"]
+            "name": "Bankura Sadar",
+            "police_stations": ["Bankura", "Chhatna", "Gangajalghati", "Onda", "Saltora", "Mejhia", "Barjora", "Beliatore"]
           },
           {
-            name: "Bankura Rural",
-            police_stations: ["Bankura Rural PS 1", "Bankura Rural PS 2"]
+            "name": "Bishnupur",
+            "police_stations": ["Bishnupur", "Kotulpur", "Joypur", "Indas", "Patrasayer", "Sonamukhi"]
+          },
+          {
+            "name": "Khatra",
+            "police_stations": ["Khatra", "Barikul", "Hirbandh", "Ranibandh", "Raipur", "Sarenga", "Simlapal", "Taldangra"]
           }
         ]
       },
       {
-        name: "Paschim Bardhaman",
-        sub_divitions: [
+        "name": "Paschim Bardhaman",
+        "sub_divitions": [
           {
-            name: "Paschim Bardhaman Urban",
-            police_stations: ["Paschim Bardhaman Urban PS 1", "Paschim Bardhaman Urban PS 2"]
+            "name": "Asansol Sadar",
+            "police_stations": ["Asansol North", "Asansol South", "Hirapur", "Kulti", "Barabani", "Salanpur", "Chittaranjan", "Jamuria", "Raniganj"]
           },
           {
-            name: "Paschim Bardhaman Rural",
-            police_stations: ["Paschim Bardhaman Rural PS 1", "Paschim Bardhaman Rural PS 2"]
+            "name": "Durgapur",
+            "police_stations": ["Durgapur", "Coke Oven", "New Township", "Andal", "Faridpur", "Pandabeswar", "Kanksa"]
           }
         ]
       },
       {
-        name: "Purba Bardhaman",
-        sub_divitions: [
+        "name": "Purba Bardhaman",
+        "sub_divitions": [
           {
-            name: "Purba Bardhaman Urban",
-            police_stations: ["Purba Bardhaman Urban PS 1", "Purba Bardhaman Urban PS 2"]
+            "name": "Bardhaman Sadar (North)",
+            "police_stations": ["Burdwan", "Galsi", "Jamalpur", "Memari", "Raina", "Madhabdihi"]
           },
           {
-            name: "Purba Bardhaman Rural",
-            police_stations: ["Purba Bardhaman Rural PS 1", "Purba Bardhaman Rural PS 2"]
+            "name": "Bardhaman Sadar (South)",
+            "police_stations": ["Ausgram", "Bhatar"]
+          },
+          {
+            "name": "Kalna",
+            "police_stations": ["Kalna", "Monteswar", "Nadanghat", "Purbasthali"]
+          },
+          {
+            "name": "Katwa",
+            "police_stations": ["Katwa", "Mongalkote", "Ketugram"]
           }
         ]
       },
       {
-        name: "Birbhum",
-        sub_divitions: [
+        "name": "Birbhum",
+        "sub_divitions": [
           {
-            name: "Birbhum Urban",
-            police_stations: ["Birbhum Urban PS 1", "Birbhum Urban PS 2"]
+            "name": "Suri Sadar",
+            "police_stations": ["Suri", "Rajnagar", "Mohammad Bazar", "Sainthia", "Dubrajpur", "Khoyrasole"]
           },
           {
-            name: "Birbhum Rural",
-            police_stations: ["Birbhum Rural PS 1", "Birbhum Rural PS 2"]
+            "name": "Bolpur",
+            "police_stations": ["Bolpur", "Santiniketan", "Labpur", "Nanoor", "Illambazar"]
+          },
+          {
+            "name": "Rampurhat",
+            "police_stations": ["Rampurhat", "Nalhati", "Murarai", "Mayureswar"]
           }
         ]
       },
       {
-        name: "Cooch Behar",
-        sub_divitions: [
+        "name": "Cooch Behar",
+        "sub_divitions": [
           {
-            name: "Cooch Behar Urban",
-            police_stations: ["Cooch Behar Urban PS 1", "Cooch Behar Urban PS 2"]
+            "name": "Cooch Behar Sadar",
+            "police_stations": ["Kotwali", "Pundibari"]
           },
           {
-            name: "Cooch Behar Rural",
-            police_stations: ["Cooch Behar Rural PS 1", "Cooch Behar Rural PS 2"]
+            "name": "Dinhata",
+            "police_stations": ["Dinhata", "Sahebganj"]
+          },
+          {
+            "name": "Mathabhanga",
+            "police_stations": ["Mathabhanga", "Ghoksadanga", "Sitalkuchi", "Sitai"]
+          },
+          {
+            "name": "Mekhliganj",
+            "police_stations": ["Mekhliganj"]
+          },
+          {
+            "name": "Tufanganj",
+            "police_stations": ["Tufanganj", "Boxirhat"]
           }
         ]
       },
       {
-        name: "Darjeeling",
-        sub_divitions: [
+        "name": "Darjeeling",
+        "sub_divitions": [
           {
-            name: "Darjeeling Urban",
-            police_stations: ["Darjeeling Urban PS 1", "Darjeeling Urban PS 2"]
+            "name": "Darjeeling Sadar",
+            "police_stations": ["Darjeeling", "Jorebungalow", "Pulbazar", "Sukhiapokhri", "Rangli Rangliot", "Lodhama"]
           },
           {
-            name: "Darjeeling Rural",
-            police_stations: ["Darjeeling Rural PS 1", "Darjeeling Rural PS 2"]
+            "name": "Kurseong",
+            "police_stations": ["Kurseong"]
+          },
+          {
+            "name": "Siliguri",
+            "police_stations": ["Siliguri", "Matigara", "Bagdogra", "Naxalbari", "Kharibari", "Phansidewa"]
           }
         ]
       },
       {
-        name: "Dakshin Dinajpur",
-        sub_divitions: [
+        "name": "Dakshin Dinajpur",
+        "sub_divitions": [
           {
-            name: "Dakshin Dinajpur Urban",
-            police_stations: ["Dakshin Dinajpur Urban PS 1", "Dakshin Dinajpur Urban PS 2"]
+            "name": "Balurghat",
+            "police_stations": ["Balurghat", "Hili", "Kumarganj", "Tapan"]
           },
           {
-            name: "Dakshin Dinajpur Rural",
-            police_stations: ["Dakshin Dinajpur Rural PS 1", "Dakshin Dinajpur Rural PS 2"]
+            "name": "Gangarampur",
+            "police_stations": ["Gangarampur", "Banshihari", "Harirampur", "Kushmandi"]
           }
         ]
       },
       {
-        name: "Hooghly",
-        sub_divitions: [
+        "name": "Hooghly",
+        "sub_divitions": [
           {
-            name: "Hooghly Urban",
-            police_stations: ["Hooghly Urban PS 1", "Hooghly Urban PS 2"]
+            "name": "Arambagh",
+            "police_stations": ["Arambag", "Khanakul", "Pursurah", "Goghat", "Tarakeswar"]
           },
           {
-            name: "Hooghly Rural",
-            police_stations: ["Hooghly Rural PS 1", "Hooghly Rural PS 2"]
+            "name": "Chandannagar",
+            "police_stations": ["Chandannagar", "Bhadreswar", "Rishra"]
+          },
+          {
+            "name": "Chinsurah",
+            "police_stations": ["Chinsurah", "Polba", "Dhaniakhali", "Balagarh", "Pandua"]
+          },
+          {
+            "name": "Serampore",
+            "police_stations": ["Serampore", "Uttarpara", "Dankuni", "Jangipara", "Chanditala", "Haripal", "Singur", "Gurap", "Dadpur"]
           }
         ]
       },
       {
-        name: "Howrah",
-        sub_divitions: [
+        "name": "Howrah",
+        "sub_divitions": [
           {
-            name: "Howrah Urban",
-            police_stations: ["Howrah Urban PS 1", "Howrah Urban PS 2"]
+            "name": "Howrah Sadar",
+            "police_stations": ["Howrah", "Shibpur", "Malipanchghora", "Jagacha", "Dasnagar", "Sankrail", "Bally", "Golabari", "Liluah", "Bantra", "AJC Bose B Garden", "Belur", "Chatterjeehat", "Nischinda"]
           },
           {
-            name: "Howrah Rural",
-            police_stations: ["Howrah Rural PS 1", "Howrah Rural PS 2"]
+            "name": "Uluberia",
+            "police_stations": ["Uluberia", "Shyampur", "Bagnan", "Amta", "Udaynarayanpur", "Bauria", "Joypur", "Panchla", "Domjur", "Jagatballavpur"]
           }
         ]
       },
       {
-        name: "Jalpaiguri",
-        sub_divitions: [
+        "name": "Jalpaiguri",
+        "sub_divitions": [
           {
-            name: "Jalpaiguri Urban",
-            police_stations: ["Jalpaiguri Urban PS 1", "Jalpaiguri Urban PS 2"]
+            "name": "Jalpaiguri Sadar",
+            "police_stations": ["Kotwali", "Rajganj", "Maynaguri", "Haldibari"]
           },
           {
-            name: "Jalpaiguri Rural",
-            police_stations: ["Jalpaiguri Rural PS 1", "Jalpaiguri Rural PS 2"]
+            "name": "Dhupguri",
+            "police_stations": ["Dhupguri", "Banarhat"]
+          },
+          {
+            "name": "Mal",
+            "police_stations": ["Malbazar", "Matelli", "Nagrakata"]
           }
         ]
       },
       {
-        name: "Jhargram",
-        sub_divitions: [
+        "name": "Jhargram",
+        "sub_divitions": [
           {
-            name: "Jhargram Urban",
-            police_stations: ["Jhargram Urban PS 1", "Jhargram Urban PS 2"]
-          },
-          {
-            name: "Jhargram Rural",
-            police_stations: ["Jhargram Rural PS 1", "Jhargram Rural PS 2"]
+            "name": "Jhargram",
+            "police_stations": ["Jhargram", "Jamboni", "Binpur", "Sankrail", "Nayagram", "Gopiballavpur", "Belpahari", "Lalgarh", "Beliaberah"]
           }
         ]
       },
       {
-        name: "Kolkata",
-        sub_divitions: [
+        "name": "Kolkata",
+        "sub_divitions": [
           {
-            name: "Kolkata Urban",
-            police_stations: ["Kolkata Urban PS 1", "Kolkata Urban PS 2"]
-          },
-          {
-            name: "Kolkata Rural",
-            police_stations: ["Kolkata Rural PS 1", "Kolkata Rural PS 2"]
+            "name": "Kolkata Commissionerate",
+            "police_stations": ["Alipore", "Amherst Street", "Anandapur", "Beliaghata", "Beniapukur", "Behala", "Bhowanipur", "Bowbazar", "Burtolla", "Charu Market", "Chetla", "Chitpur", "Cossipore", "Ekbalpur", "Entally", "Garden Reach", "Gariahat", "Girish Park", "Hare Street", "Haridevpur", "Hastings", "Jadavpur", "Jorabagan", "Jorasanko", "Kalighat", "Kasba", "Karaya", "Lake", "Lalbazar", "Maidan", "Maniktala", "Muchipara", "Narkeldanga", "New Alipore", "New Market", "Park Street", "Parnashree", "Patuli", "Phoolbagan", "Posta", "Regent Park", "Sealdah", "Shyampukur", "Sinthee", "Tala", "Taltala", "Tollygunge", "Topsia", "Ultadanga", "Watgunge"]
           }
         ]
       },
       {
-        name: "Kalimpong",
-        sub_divitions: [
+        "name": "Kalimpong",
+        "sub_divitions": [
           {
-            name: "Kalimpong Urban",
-            police_stations: ["Kalimpong Urban PS 1", "Kalimpong Urban PS 2"]
-          },
-          {
-            name: "Kalimpong Rural",
-            police_stations: ["Kalimpong Rural PS 1", "Kalimpong Rural PS 2"]
+            "name": "Kalimpong",
+            "police_stations": ["Kalimpong", "Gorubathan", "Jaldhaka"]
           }
         ]
       },
       {
-        name: "Malda",
-        sub_divitions: [
+        "name": "Malda",
+        "sub_divitions": [
           {
-            name: "Malda Urban",
-            police_stations: ["Malda Urban PS 1", "Malda Urban PS 2"]
+            "name": "Malda Sadar",
+            "police_stations": ["English Bazar", "Malda", "Habibpur", "Gazole", "Bamongola", "Manikchak", "Kaliachak", "Baishnabnagar", "Mothabari"]
           },
           {
-            name: "Malda Rural",
-            police_stations: ["Malda Rural PS 1", "Malda Rural PS 2"]
+            "name": "Chanchal",
+            "police_stations": ["Chanchal", "Harishchandrapur", "Ratua", "Pukhuria", "Samsi"]
           }
         ]
       },
       {
-        name: "Paschim Medinipur",
-        sub_divitions: [
+        "name": "Paschim Medinipur",
+        "sub_divitions": [
           {
-            name: "Paschim Medinipur Urban",
-            police_stations: ["Paschim Medinipur Urban PS 1", "Paschim Medinipur Urban PS 2"]
+            "name": "Medinipur Sadar",
+            "police_stations": ["Kotwali", "Salboni", "Goaltore", "Garhbeta", "Keshpur", "Anandapur", "Lalgarh"]
           },
           {
-            name: "Paschim Medinipur Rural",
-            police_stations: ["Paschim Medinipur Rural PS 1", "Paschim Medinipur Rural PS 2"]
+            "name": "Kharagpur",
+            "police_stations": ["Kharagpur Town", "Kharagpur Local", "Debra", "Keshiary", "Dantan", "Mohanpur", "Narayangarh", "Pingla", "Sabong", "Belda"]
+          },
+          {
+            "name": "Ghatal",
+            "police_stations": ["Ghatal", "Daspur", "Chandrakona"]
           }
         ]
       },
       {
-        name: "Purba Medinipur",
-        sub_divitions: [
+        "name": "Purba Medinipur",
+        "sub_divitions": [
           {
-            name: "Purba Medinipur Urban",
-            police_stations: ["Purba Medinipur Urban PS 1", "Purba Medinipur Urban PS 2"]
+            "name": "Tamluk",
+            "police_stations": ["Tamluk", "Panskura", "Kolaghat", "Nandakumar", "Chandipur", "Moyna", "Nandigram"]
           },
           {
-            name: "Purba Medinipur Rural",
-            police_stations: ["Purba Medinipur Rural PS 1", "Purba Medinipur Rural PS 2"]
+            "name": "Haldia",
+            "police_stations": ["Haldia", "Durgachak", "Mahishadal", "Bhabanipur", "Sutahata"]
+          },
+          {
+            "name": "Contai",
+            "police_stations": ["Contai", "Khejuri", "Ramnagar", "Marishda", "Bhupatinagar", "Egra", "Bhagwanpur", "Pataspur"]
           }
         ]
       },
       {
-        name: "Murshidabad",
-        sub_divitions: [
+        "name": "Murshidabad",
+        "sub_divitions": [
           {
-            name: "Murshidabad Urban",
-            police_stations: ["Murshidabad Urban PS 1", "Murshidabad Urban PS 2"]
+            "name": "Berhampore",
+            "police_stations": ["Berhampore", "Beldanga", "Hariharpara", "Nowda", "Rejinagar"]
           },
           {
-            name: "Murshidabad Rural",
-            police_stations: ["Murshidabad Rural PS 1", "Murshidabad Rural PS 2"]
+            "name": "Kandi",
+            "police_stations": ["Kandi", "Bharatpur", "Salar", "Burwan", "Khargram"]
+          },
+          {
+            "name": "Jangipur",
+            "police_stations": ["Jangipur", "Raghunathganj", "Suti", "Sagardighi", "Samsherganj", "Farakka"]
+          },
+          {
+            "name": "Lalbag",
+            "police_stations": ["Murshidabad", "Nabagram", "Jiaganj", "Lalgola", "Bhagwangola"]
+          },
+          {
+            "name": "Domkal",
+            "police_stations": ["Domkal", "Ranitala", "Islampur", "Jalangi"]
           }
         ]
       },
       {
-        name: "Nadia",
-        sub_divitions: [
+        "name": "Nadia",
+        "sub_divitions": [
           {
-            name: "Nadia Urban",
-            police_stations: ["Nadia Urban PS 1", "Nadia Urban PS 2"]
+            "name": "Krishnanagar Sadar",
+            "police_stations": ["Kotwali", "Dhubulia", "Chapra", "Nakashipara", "Krishnaganj"]
           },
           {
-            name: "Nadia Rural",
-            police_stations: ["Nadia Rural PS 1", "Nadia Rural PS 2"]
+            "name": "Ranaghat",
+            "police_stations": ["Ranaghat", "Taherpur", "Gangnapur", "Hanskhali", "Santipur"]
+          },
+          {
+            "name": "Kalyani",
+            "police_stations": ["Kalyani", "Haringhata", "Chakdaha", "Dhantala"]
+          },
+          {
+            "name": "Tehatta",
+            "police_stations": ["Tehatta", "Karimpur", "Thanapara", "Palashipara", "Nabadwip", "Kaliganj"]
           }
         ]
       },
       {
-        name: "North 24 Parganas",
-        sub_divitions: [
+        "name": "North 24 Parganas",
+        "sub_divitions": [
           {
-            name: "North 24 Parganas Urban",
-            police_stations: ["North 24 Parganas Urban PS 1", "North 24 Parganas Urban PS 2"]
+            "name": "Barrackpore",
+            "police_stations": ["Barrackpore", "Titagarh", "Khardaha", "Ghola", "Jagaddal", "Noapara", "Baranagar", "Belgharia", "Nimta", "New Barrackpore", "Kamarhati"]
           },
           {
-            name: "North 24 Parganas Rural",
-            police_stations: ["North 24 Parganas Rural PS 1", "North 24 Parganas Rural PS 2"]
+            "name": "Barasat",
+            "police_stations": ["Barasat", "Madhyamgram", "Deganga", "Amdanga", "Duttapukur", "Rajarhat", "Ashoknagar", "Habra", "Haroa"]
+          },
+          {
+            "name": "Basirhat",
+            "police_stations": ["Basirhat", "Baduria", "Haroa (shared)", "Minakhan", "Sandeshkhali", "Hasnabad", "Hingalganj", "Swarupnagar"]
+          },
+          {
+            "name": "Bangaon",
+            "police_stations": ["Bangaon", "Gopalnagar", "Bagdah", "Gaighata", "Petrapole"]
+          },
+          {
+            "name": "Bidhannagar",
+            "police_stations": ["Bidhannagar", "Baguiati", "Lake Town", "Narayanpur", "Electronics Complex", "New Town", "Eco Park", "Airport"]
           }
         ]
       },
       {
-        name: "South 24 Parganas",
-        sub_divitions: [
+        "name": "South 24 Parganas",
+        "sub_divitions": [
           {
-            name: "South 24 Parganas Urban",
-            police_stations: ["South 24 Parganas Urban PS 1", "South 24 Parganas Urban PS 2"]
+            "name": "Baruipur",
+            "police_stations": ["Baruipur", "Sonarpur", "Joynagar", "Kultali", "Bhangar", "Usthi", "Mograhat", "Mandirbazar"]
           },
           {
-            name: "South 24 Parganas Rural",
-            police_stations: ["South 24 Parganas Rural PS 1", "South 24 Parganas Rural PS 2"]
+            "name": "Diamond Harbour",
+            "police_stations": ["Diamond Harbour", "Falta", "Magrahat", "Mathurapur", "Kulpi"]
+          },
+          {
+            "name": "Sundarban",
+            "police_stations": ["Kakdwip", "Namkhana", "Sagar", "Patharpratima", "Gosaba", "Basanti", "Canning", "Maipith Coastal", "Jibantala"]
           }
         ]
       },
       {
-        name: "Purulia",
-        sub_divitions: [
+        "name": "Purulia",
+        "sub_divitions": [
           {
-            name: "Purulia Urban",
-            police_stations: ["Purulia Urban PS 1", "Purulia Urban PS 2"]
+            "name": "Purulia Sadar",
+            "police_stations": ["Purulia", "Muffasil", "Para", "Santaldih", "Hura", "Kenda", "Arsha", "Joypur"]
           },
           {
-            name: "Purulia Rural",
-            police_stations: ["Purulia Rural PS 1", "Purulia Rural PS 2"]
+            "name": "Manbazar",
+            "police_stations": ["Manbazar", "Boro", "Bandwan", "Barabazar", "Puncha"]
+          },
+          {
+            "name": "Jhalda",
+            "police_stations": ["Jhalda", "Baghmundi", "Kotshila"]
+          },
+          {
+            "name": "Raghunathpur",
+            "police_stations": ["Raghunathpur", "Neturia", "Kashipur", "Adra"]
           }
         ]
       },
       {
-        name: "Uttar Dinajpur",
-        sub_divitions: [
+        "name": "Uttar Dinajpur",
+        "sub_divitions": [
           {
-            name: "Uttar Dinajpur Urban",
-            police_stations: ["Uttar Dinajpur Urban PS 1", "Uttar Dinajpur Urban PS 2"]
+            "name": "Raiganj",
+            "police_stations": ["Raiganj", "Itahar", "Hemtabad", "Kaliyaganj"]
           },
           {
-            name: "Uttar Dinajpur Rural",
-            police_stations: ["Uttar Dinajpur Rural PS 1", "Uttar Dinajpur Rural PS 2"]
+            "name": "Islampur",
+            "police_stations": ["Islampur", "Chopra", "Goalpokhar", "Chakulia", "Karandighi"]
           }
         ]
       }

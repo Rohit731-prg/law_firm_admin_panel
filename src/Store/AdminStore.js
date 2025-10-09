@@ -9,6 +9,16 @@ const useAdminStore = create(
             admin: null,
             admins: [],
 
+            users: 0,
+            leads: 0,
+            sos: 0,
+            infos: 0,
+
+            userLists: [],
+            leadLists: [],
+            sosLists: [],
+            infoLists: [],
+
             signUp: async (admin) => {
                 try {
                     const formData = new FormData();
@@ -110,6 +120,25 @@ const useAdminStore = create(
                     get().getAllAdmins();
                 } catch (error) {
                     toast.error(error.response?.data?.message || "Something went wrong");
+                }
+            },
+
+            basicInfo: async () => {
+                try {
+                    const res = await api.get("admin/getAllBasicInfo");
+                    console.log(res.data);
+                    set({ 
+                        users: res.data.user,
+                        leads: res.data.lead,
+                        sos: res.data.sos,
+                        infos: res.data.external,
+                        userLists: res.data.userList,
+                        leadLists: res.data.leadList,
+                        sosLists: res.data.sosList,
+                        infoLists: res.data.externalList
+                    });
+                } catch (error) {
+                    console.log(error);
                 }
             }
         }),

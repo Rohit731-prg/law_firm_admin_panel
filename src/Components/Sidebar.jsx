@@ -1,4 +1,3 @@
-import React from 'react'
 import { sidebarElements } from '../Utils/sidebarElements'
 import useAdminStore from '../Store/AdminStore';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -10,6 +9,12 @@ function Sidebar() {
 
     const changeRoute = (path) => {
         navigate(path);
+    }
+
+    const handelLogout = async () => {
+        await useAdminStore.getState().logout();
+        localStorage.removeItem("auth");
+        navigate("/");
     }
 
     return (
@@ -52,7 +57,9 @@ function Sidebar() {
             
             {/* Logout */}
             <section className="pt-6 border-t border-gray-200">
-                <button className="w-full px-4 py-2 text-left rounded-md bg-red-50 text-red-600 hover:bg-red-100 active:bg-red-200 transition-colors">
+                <button 
+                onClick={() => handelLogout()}
+                className="w-full px-4 py-2 text-left rounded-md bg-red-50 text-red-600 hover:bg-red-100 active:bg-red-200 transition-colors">
                     Logout
                 </button>
             </section>
