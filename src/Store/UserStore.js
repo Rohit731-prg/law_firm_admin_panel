@@ -5,6 +5,7 @@ import { api } from '../Utils/axios';
 const useUserStore = create((set, get) => ({
     users: null,
     user: null,
+    id: "",
 
     getAllUsers: async () => {
         try {
@@ -95,7 +96,111 @@ const useUserStore = create((set, get) => ({
         } catch (error) {
             toast.error(error.response?.data?.message || "Something went wrong");
         }
+    },
+
+    registerVehicle: async (vehicle) => {
+        try {
+            const newForm = new FormData();
+            newForm.append("number", vehicle.number);
+            newForm.append("engine_number", vehicle.engine_number);
+            newForm.append("chasis_number", vehicle.chasis_number);
+            newForm.append("brand", vehicle.brand);
+            newForm.append("mode", vehicle.mode);
+            newForm.append("tax_expair_date", vehicle.tax_expair_date);
+            newForm.append("insurence_expair_date", vehicle.insurence_expair_date);
+            newForm.append("pollution_expair_date", vehicle.pollution_expair_date);
+
+            if (vehicle.tax) newForm.append("tax", vehicle.tax);
+            if (vehicle.insurance) newForm.append("insurance", vehicle.insurance);
+            if (vehicle.pollution) newForm.append("pollution", vehicle.pollution);
+
+            // Await directly for clarity
+            const res = await toast.promise(
+                api.post("vehicle/registerVehicle", newForm, {
+                    headers: { "Content-Type": "multipart/form-data" },
+                }),
+                {
+                    loading: "Setting vehicle...",
+                    success: (res) => res.data.message || "Vehicle set",
+                    error: (err) => err.response?.data?.message || "Something went wrong",
+                }
+            );
+
+            console.log(res);
+            set({ id: res.data.id });
+            return true;
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Something went wrong");
+        }
+    },
+
+    registerUser: async (user) => {
+    try {
+        const newForm = new FormData();
+        newForm.append("name", user.name);
+        newForm.append("email", user.email);
+        newForm.append("phone", user.phone);
+        newForm.append("blood_group", user.blood_group);
+        newForm.append("pan_number", user.pan_number);
+        newForm.append("aadhar_number", user.aadhar_number);
+        newForm.append("driving_licence_number", user.driving_licence_number);
+        newForm.append("driving_licence_expair_date", user.driving_licence_expair_date);
+        newForm.append("referal_number", user.referal_number);
+        newForm.append("relation", user.relation);
+        newForm.append("vehicle", get().id);
+        newForm.append("password", user.password);
+        
+        // 💡 FIX: Manually stringify the address object
+        const addressJsonString = JSON.stringify(user.address);
+        newForm.append("address", addressJsonString); 
+        
+        newForm.append("image", user.image);
+
+        const res = await toast.promise(
+            api.post(`user/registerUser`, newForm, {
+                headers: { "Content-Type": "multipart/form-data" },
+            }),
+            {
+                loading: "Registering user...",
+                success: (res) => res.data.message || "User registered",
+                // error: (err) => err.response?.data?.message || "Something went wrong",
+            }
+        );
+        console.log(res);
+        set({ id: res.data.id });
+        return true;
+    } catch (error) {
+        console.log(error);
+        toast.error(error.response?.data?.message || "Something went wrong");
+        return false; // Return false on error for better flow control
     }
+},
+
+    uploadDocs: async (data) => {
+        try {
+            console.log(data.pan);
+            const newForm = new FormData();
+            newForm.append("pan", data.pan);
+            newForm.append("aadhar", data.aadhar);
+            newForm.append("licence", data.driving_licence);
+            console.log(newForm[0]);
+            const res = await toast.promise(
+                api.put(`user/verifyDocs/${get().id}`, newForm, {
+                    headers: { "Content-Type": "multipart/form-data" },
+                }),
+                {
+                    loading: "Uploading docs...",
+                    success: (res) => res.data.message || "Docs uploaded",
+                    // error: (err) => err.response?.data?.message || "Something went wrong",
+                }
+            )
+            return true
+        } catch (error) {
+            console.log(error);
+            toast.error(error.response?.data?.message || "Something went wrong");
+        }
+    }
+
 }));
 
 export default useUserStore;

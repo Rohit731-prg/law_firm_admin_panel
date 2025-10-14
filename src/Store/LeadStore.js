@@ -55,6 +55,7 @@ const useLeadsStore = create((set, get) => ({
         error: (err) => err.response?.data?.message || "Lead not deleted",
       });
       await res;
+      set({ lead: null });
       get().getAllLeads();
     } catch (error) {
       console.log(error);

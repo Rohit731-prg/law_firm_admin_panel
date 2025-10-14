@@ -8,6 +8,7 @@ import { IoIosSend } from "react-icons/io";
 import { LuMailPlus } from "react-icons/lu";
 import { Toaster } from 'react-hot-toast';
 import Swal from 'sweetalert2';
+import { IoLocation } from "react-icons/io5";
 
 function Sos() {
     const getAllSos = useSosStore((state) => state.getAllSos);
@@ -28,7 +29,7 @@ function Sos() {
         updateSosStatus(sosE._id);
     }
 
-    const handelDelete = async(id) => {
+    const handelDelete = async (id) => {
         const result = await Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -140,15 +141,38 @@ function Sos() {
                                     </div>
                                 </header>
 
-                                <div className="bg-white shadow-sm rounded-xl p-6 border border-gray-200 space-y-6 text-gray-800">
+                                <div className="bg-white shadow-sm rounded-xl p-6 border border-gray-200 space-y-6 text-gray-800 mt-5">
                                     {/* Address */}
-                                    <div className="text-sm font-medium flex flex-col space-y-1">
-                                        <span className="text-gray-500">Address:</span>{" "}
-                                        <span className="font-semibold">{selectedSos?.user?.address?.street}</span>
-                                        <span className="font-semibold">{selectedSos?.user?.address?.city}</span>
-                                        <span className="font-semibold">{selectedSos?.user?.address?.state}</span>
-                                        <span className="font-semibold">{selectedSos?.user?.address?.pincode}</span>
-                                        <span className="font-semibold">{selectedSos?.user?.address?.policeStation}</span>
+                                    <div className='flex flex-row justify-between gap-10'>
+                                        <div className="text-sm font-medium flex flex-col space-y-1">
+                                            <span className="text-gray-500">Address:</span>{" "}
+                                            <span className="font-semibold">{selectedSos?.user?.address?.street}</span>
+                                            <span className="font-semibold">{selectedSos?.user?.address?.city}</span>
+                                            <span className="font-semibold">{selectedSos?.user?.address?.state}</span>
+                                            <span className="font-semibold">{selectedSos?.user?.address?.pincode}</span>
+                                            <span className="font-semibold">{selectedSos?.user?.address?.policeStation}</span>
+                                        </div>
+
+                                        <div className='text-sm text-right font-medium flex flex-col space-y-1'>
+                                            <p className='text-gray-500'>Sos Request Address : </p>
+                                            {[
+                                                { id: 1, name: selectedSos?.location_data?.display_name },
+                                                { id: 1, name: selectedSos?.location_data?.category },
+                                                { id: 1, name: selectedSos?.location_data?.address?.residential },
+                                                { id: 1, name: selectedSos?.location_data?.address?.city },
+                                                { id: 1, name: selectedSos?.location_data?.address?.state },
+                                                { id: 1, name: selectedSos?.location_data?.address?.postcode },
+                                            ].map((ele, index) => (
+                                                <p className='font-semibold' key={index}>{ele.name}</p>
+                                            ))}
+                                        </div>
+                                        <button
+                                        onClick={() => window.open(`https://www.google.com/maps/search/?api=1&query=${selectedSos?.location?.latitude},${selectedSos?.location?.longitude}`)}
+                                        className='bg-black text-white py-2 px-2 flex flex-col justify-center items-center gap-2'
+                                        >
+                                            <IoLocation/>
+                                            <p>Track<br />Location</p>
+                                        </button>
                                     </div>
 
                                     {/* Documents */}
@@ -165,21 +189,21 @@ function Sos() {
                                                 id: 2,
                                                 name: "Tax",
                                                 value: selectedSos?.user?.vehicle?.tax?.Number,
-                                                ex_date: selectedSos?.user?.vehicle?.tax?.expair_date,
+                                                ex_date: selectedSos?.vehicle?.tax?.expair_date,
                                                 document: selectedSos?.vehicle?.tax?.docs,
                                             },
                                             {
                                                 id: 3,
                                                 name: "Pollution",
                                                 value: selectedSos?.user?.vehicle?.pollution?.Number,
-                                                ex_date: selectedSos?.user?.vehicle?.pollution?.expair_date,
+                                                ex_date: selectedSos?.vehicle?.pollution?.expair_date,
                                                 document: selectedSos?.vehicle?.pollution?.docs,
                                             },
                                             {
                                                 id: 4,
                                                 name: "Insurance",
                                                 value: selectedSos?.user?.vehicle?.insurance?.Number,
-                                                ex_date: selectedSos?.user?.vehicle?.insurance?.expair_date,
+                                                ex_date: selectedSos?.vehicle?.insurance?.expair_date,
                                                 document: selectedSos?.vehicle?.insurance?.docs,
                                             },
                                         ].map((item) => (
@@ -194,11 +218,11 @@ function Sos() {
                                                 </p>
                                                 <p className="text-sm text-gray-600">
                                                     <span className="font-medium text-gray-700">Expiry Date:</span>{" "}
-                                                    {item.ex_date || "N/A"}
+                                                    {item.ex_date?.split("T")[0] || "N/A"}
                                                 </p>
-                                                <button 
-                                                onClick={() => window.open(item?.document, "_blank")}
-                                                className="mt-3 text-sm border border-navy-600 text-navy-700 hover:bg-black hover:text-white rounded-lg px-3 py-1.5 transition">
+                                                <button
+                                                    onClick={() => window.open(item?.document, "_blank")}
+                                                    className="mt-3 text-sm border border-navy-600 text-navy-700 hover:bg-black hover:text-white rounded-lg px-3 py-1.5 transition">
                                                     Download {item.name} Document
                                                 </button>
                                             </div>
@@ -228,14 +252,14 @@ function Sos() {
                                         type="text"
                                     />
                                     <button
-                                    onClick={() => replySos(selectedSos?._id, reply)}
-                                    className="p-2 px-5 bg-black text-white rounded-md hover:bg-navy-800 transition">
+                                        onClick={() => replySos(selectedSos?._id, reply)}
+                                        className="p-2 px-5 bg-black text-white rounded-md hover:bg-navy-800 transition">
                                         <IoIosSend className="text-xl" />
                                     </button>
                                 </footer>
-                                <button 
-                                onClick={() => handelDelete(selectedSos?._id)}
-                                className='mt-5 bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-700'>
+                                <button
+                                    onClick={() => handelDelete(selectedSos?._id)}
+                                    className='mt-5 bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-700'>
                                     delete Sos
                                 </button>
                             </main>

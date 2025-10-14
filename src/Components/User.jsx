@@ -58,7 +58,7 @@ function User() {
 
     if (result.isConfirmed) {
       await deleteUser(id);
-      
+
       await getAllUsers();
     }
   }
@@ -107,7 +107,7 @@ function User() {
               {users ? (
                 <tbody>
                   {filteredUser.map((user) => (
-                    <tr className='hover:bg-gray-50 cursor-pointer transition' key={user.id} onClick={() => getUserDetailsByID(user._id)}>
+                    <tr className='hover:bg-gray-50 cursor-pointer transition' key={user?._id} onClick={() => getUserDetailsByID(user._id)}>
                       <td className='py-3 px-2'><img className='w-12 h-12 rounded-full object-cover border border-gray-200' src={user.image} alt="" /></td>
                       <td className='py-3 px-2'>{user.name}</td>
                       <td className='py-3 px-2'>{user.phone}</td>
@@ -117,9 +117,9 @@ function User() {
                   ))}
                 </tbody>
               ) : (
-                <div className='w-full text-center py-10 text-gray-500'>
-                  <p className='text-center'>No User Found</p>
-                </div>
+                <tbody className='w-full text-center py-10 text-gray-500'>
+                  <td className='text-center'>No User Found</td>
+                </tbody>
               )}
             </table>
           </section>
@@ -134,8 +134,8 @@ function User() {
                   <div className='flex flex-row items-start justify-between'>
                     <img src={user.image} alt="" className="w-20 h-20 rounded-sm object-cover mb-3" />
                     <button
-                    onClick={() => setEdit(true)}
-                    className='px-4 py-2 bg-black text-white hover:bg-white hover:text-black hover:border-black border-2 transition-all cursor-pointer font-semibold'
+                      onClick={() => setEdit(true)}
+                      className='px-4 py-2 bg-black text-white hover:bg-white hover:text-black hover:border-black border-2 transition-all cursor-pointer font-semibold'
                     >
                       Edit Profile
                     </button>
@@ -155,7 +155,14 @@ function User() {
                     </div>
                     <div>
                       <p className="text-gray-500 font-medium">Address</p>
-                      <p className="text-gray-800">{user.address}</p>
+                      <div>
+                        {[
+                          user.address?.street,
+                          user.address?.city,
+                          user.address?.state,
+                          user.address?.pincode,
+                        ].join(", ")}
+                      </div>
                     </div>
                     <div>
                       <p className="text-gray-500 font-medium">PAN</p>
@@ -181,15 +188,23 @@ function User() {
                     </div>
                     <div>
                       <p className="text-gray-500 font-medium">Tax Expiry</p>
-                      <p className="text-gray-800">{user.vehicle?.tax?.expair_date}</p>
+                      <p className="text-gray-800">
+                        {user.vehicle?.tax?.expair_date?.split("T")[0]}
+                      </p>
                       <p className="text-gray-500 font-medium mt-2">Insurance Expiry</p>
-                      <p className="text-gray-800">{user.vehicle?.insurance?.expair_date}</p>
+                      <p className="text-gray-800">{user.vehicle?.insurance?.expair_date?.split("T")[0]}</p>
                     </div>
                     <div>
                       <p className="text-gray-500 font-medium">Chasis</p>
                       <p className="text-gray-800">{user.vehicle?.chasis_number}</p>
                       <p className="text-gray-500 font-medium mt-2">Brand</p>
                       <p className="text-gray-800">{user.vehicle?.brand}</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-500 font-medium">Pollution Expiry</p>
+                      <p className="text-gray-800">{user.vehicle?.pollution?.expair_date?.split("T")[0]}</p>
+                      <p className="text-gray-500 font-medium mt-2">Mode</p>
+                      <p className="text-gray-800">{user.vehicle?.mode}</p>
                     </div>
                   </div>
                 </div>

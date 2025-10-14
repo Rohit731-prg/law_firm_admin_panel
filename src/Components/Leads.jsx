@@ -154,13 +154,13 @@ function Leads() {
             label="Address"
             value={
               <>
-                {lead.address?.street}
-                <br />
-                {lead.address?.city}, {lead.address?.state}
-                <br />
-                {lead.address?.pincode}
-                <br />
-                {lead.address?.policeStation}
+                {lead.address?.street},
+                {/* <br /> */}
+                {" " + lead.address?.city}, {" " + lead.address?.state},
+                {/* <br /> */}
+                {" " + lead.address?.pincode},
+                {/* <br /> */}
+                {" " + lead.address?.policeStation}
               </>
             }
           />
@@ -207,10 +207,12 @@ function Leads() {
       <Section title="Vehicle Details">
         <div className="grid sm:grid-cols-3 gap-y-3 text-sm">
           {[
+            ["Model", lead.vehicle?.mode],
             ["Number", lead.vehicle?.number],
             ["Engine", lead.vehicle?.engine_number],
-            ["Tax Expiry", lead.vehicle?.tax?.expair_date],
-            ["Insurance Expiry", lead.vehicle?.insurance?.expair_date],
+            ["Tax Expiry", lead.vehicle?.tax?.expair_date?.split("T")[0]],
+            ["Insurance Expiry", lead.vehicle?.insurance?.expair_date?.split("T")[0]],
+            ["Pollution Expiry", lead.vehicle?.pollution?.expair_date.split("T")[0]],
             ["Chasis", lead.vehicle?.chasis_number],
             ["Brand", lead.vehicle?.brand],
           ].map(([label, value]) => (
@@ -264,6 +266,7 @@ function Leads() {
         <main className="flex flex-col lg:flex-row gap-8">
           {/* Leads List */}
           <section className="lg:w-2/5 bg-white shadow-sm rounded-xl p-5">
+            <p className="text-lg my-3">All Existing Leads</p>
             <div className="flex items-center gap-2 border border-gray-300 px-4 py-2 rounded-lg mb-4 bg-gray-50">
               <LuSearch className="text-gray-500" />
               <input

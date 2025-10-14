@@ -10,13 +10,15 @@ import User from './Components/User';
 import Sos from './Components/Sos';
 import Info from './Components/Info';
 import ListingInfo from './Components/ListingInfo';
+import Notice from './Components/Notice';
+import AddUser from './Components/AddUser';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
-        
+
         {/* Protected route */}
         <Route
           path="/dashboard"
@@ -71,6 +73,22 @@ function App() {
           element={
             <ProtectedRoute>
               <ListingInfo />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/notice"
+          element={
+            <ProtectedRoute>
+              <Notice />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/adduser"
+          element={
+            <ProtectedRoute>
+              <AddUser />
             </ProtectedRoute>
           }
         />

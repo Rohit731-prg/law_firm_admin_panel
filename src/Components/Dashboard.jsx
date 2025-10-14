@@ -186,8 +186,8 @@ function Dashboard() {
                 </tr>
               </thead>
               <tbody>
-                {userLists?.length ? (
-                  userLists.map((user) => (
+                {leadLists?.length ? (
+                  leadLists.map((user) => (
                     <tr key={user._id} className="border-b hover:bg-gray-50">
                       <td className="px-3 py-2">
                         <img

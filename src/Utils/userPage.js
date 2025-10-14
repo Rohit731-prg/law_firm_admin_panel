@@ -19,4 +19,4 @@ export const infoTypes = [
     { id: 3, name: "Ambulance"},
     { id: 4, name: "Electricity"},
     { id: 5, name: "Garadge"}
-]
+];

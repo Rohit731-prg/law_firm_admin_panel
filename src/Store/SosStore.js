@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 const useSosStore = create((set, get) => ({
   sos: null,
   selectedSos: null,
+  location: null,
 
   // ✅ Get all SOS records
   getAllSos: async () => {
@@ -18,7 +19,9 @@ const useSosStore = create((set, get) => ({
   },
 
   // ✅ Select a specific SOS
-  setSelectSos: (sos) => set({ selectedSos: sos }),
+  setSelectSos: async (sos) => {
+    set({ selectedSos: sos })
+  },
 
   // ✅ Update SOS status
   updateSosStatus: async (id) => {

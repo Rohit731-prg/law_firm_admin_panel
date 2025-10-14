@@ -63,29 +63,26 @@ const useAdminStore = create(
 
             login: async (email, password) => {
                 try {
-
-                    const res = await api.post("admin/login", {
-                        email,
-                        password
-                    });
-                    console.log(res);
-
-                    toast.promise(
-                        Promise.resolve(res),
+                    const res = await toast.promise(
+                        api.post("admin/login", { email, password }),
                         {
                             loading: "Logging in...",
                             success: (res) => res.data.message,
-                            error: (err) => err.response?.data?.message || "Login failed"
+                            error: (err) => err.response?.data?.message || "Login failed",
                         }
                     );
+
                     set({ admin: res.data.admin });
                     return true;
+
                 } catch (error) {
                     console.log(error);
+                    // Extra fallback toast if something unexpected happens
                     toast.error(error.response?.data?.message || "Something went wrong");
                     return false;
                 }
             },
+
 
             logout: async () => {
                 try {
@@ -127,7 +124,7 @@ const useAdminStore = create(
                 try {
                     const res = await api.get("admin/getAllBasicInfo");
                     console.log(res.data);
-                    set({ 
+                    set({
                         users: res.data.user,
                         leads: res.data.lead,
                         sos: res.data.sos,
@@ -137,6 +134,7 @@ const useAdminStore = create(
                         sosLists: res.data.sosList,
                         infoLists: res.data.externalList
                     });
+                    console.log(res.data);
                 } catch (error) {
                     console.log(error);
                 }
