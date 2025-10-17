@@ -4,9 +4,12 @@ import { usersTable } from "../Utils/tableData";
 import { bulkSmsButton, filterBtnList } from "../Utils/userPage";
 import Sidebar from "./Sidebar"
 import { LuSearch } from "react-icons/lu";
+import useNoticeStore from "../Store/noticeStore";
+import { Toaster } from "react-hot-toast";
 
 function Notice() {
     const { user, users, getAllUsers, getUserDetailsByID, filterUser } = useUserStore();
+    const { sendNotice, sendBulkSms } = useNoticeStore();
 
     const [search, setSearch] = useState('');
     const filteredUser = users?.filter((user) => user?.name?.toLowerCase().includes(search.toLowerCase()));
@@ -14,7 +17,11 @@ function Notice() {
     const [message, setMessage] = useState('');
 
     const handelSendSms = async () => {
-        alert('Send SMS');
+        await sendNotice(user?.phone, message);
+    }
+
+    const sendSMSBulk_function = async (name) => {
+        await sendBulkSms(name);
     }
 
     useEffect(() => {
@@ -83,7 +90,12 @@ function Notice() {
                     <section className="w-1/2">
                         <div>
                             {bulkSmsButton.map((item, i) => (
-                                <button key={i} className="bg-black text-white px-5 py-2 mx-1">{item.name}</button>
+                                <button
+                                onClick={() => sendSMSBulk_function(item.value)}
+                                key={i} 
+                                className="bg-black text-white px-5 py-2 mx-1">
+                                    {item.name}
+                                </button>
                             ))}
                         </div>
                         {user ? (
@@ -179,7 +191,7 @@ function Notice() {
                     </section>
                 </main>
             </main>
-
+            <Toaster />
         </main>
     )
 }

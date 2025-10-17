@@ -1,8 +1,8 @@
 export const bulkSmsButton = [
-    { id: 1, name: "Driving License Bulk SMS" },
-    { id: 2, name: "Tax Bulk SMS" },
-    { id: 3, name: "Insurance Bulk SMS" },
-    { id: 4, name: "Pollution Bulk SMS" },
+    { id: 1, name: "Driving License Bulk SMS", value: "driving_licence" },
+    { id: 2, name: "Tax Bulk SMS", value: "tax" },
+    { id: 3, name: "Insurance Bulk SMS", value: "insurance" },
+    { id: 4, name: "Pollution Bulk SMS", value: "pollution" },
 ];
 
 export const filterBtnList = [
