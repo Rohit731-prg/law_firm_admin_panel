@@ -95,6 +95,7 @@ const useUserStore = create((set, get) => ({
             set({ user: null });
         } catch (error) {
             toast.error(error.response?.data?.message || "Something went wrong");
+            set({ user: null })
         }
     },
 

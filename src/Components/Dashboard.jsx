@@ -144,10 +144,10 @@ function Dashboard() {
                   infoLists.map((info) => (
                     <tr key={info._id} className="border-b hover:bg-gray-50">
                       <td className="py-3 px-2">{info.type}</td>
-                      <td className="py-3 px-2">{info.name}</td>
+                      <td className="py-3 px-2">{info?.basic_info?.name}</td>
                       <td className="py-3 px-2">{info.state}</td>
                       <td className="py-3 px-2">{info.district}</td>
-                      <td className="py-3 px-2">{info.policeStation}</td>
+                      <td className="py-3 px-2">{info.police_station}</td>
                     </tr>
                   ))
                 ) : (

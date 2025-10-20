@@ -135,7 +135,7 @@ function Leads() {
       {/* Personal Details */}
       <Section title="Personal Details">
         <img
-          src={lead.image}
+          src={lead?.image}
           alt="lead"
           className="w-20 h-20 rounded-sm object-cover mb-3"
         />

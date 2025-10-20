@@ -41,6 +41,7 @@ const useLeadsStore = create((set, get) => ({
     } catch (error) {
       console.log(error);
       toast.error(error.response?.data?.message || "Something went wrong")
+      set({ lead: null })
     }
   },
 
