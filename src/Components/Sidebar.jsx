@@ -1,4 +1,4 @@
-import { sidebarElements } from '../Utils/sidebarElements'
+import { sidebarElements_admin, sidebarElements_employee } from '../Utils/sidebarElements'
 import useAdminStore from '../Store/AdminStore';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -18,11 +18,11 @@ function Sidebar() {
     }
 
     return (
-        <aside className="px-6 py-6 min-h-screen w-64 bg-white shadow-lg border-r border-gray-200 flex flex-col justify-between">
-            
+        <aside className="px-6 py-6 min-h-screen w-64 bg-white shadow-lg border-r border-gray-200 flex flex-col justify-between ">
+
             {/* Admin Profile */}
             <section className="flex items-center gap-4 mb-8 border-b-2 border-gray-200 pb-3">
-                <img 
+                <img
                     src={admin?.image}
                     alt={admin?.name}
                     className="w-16 h-16 rounded-full object-cover border border-gray-300"
@@ -34,32 +34,55 @@ function Sidebar() {
             </section>
 
             {/* Sidebar Links */}
-            <section className="flex flex-col gap-1 flex-grow">
-                {sidebarElements.map((ele) => {
-                    const isActive = location.pathname === ele.path; // check if current path matches
-                    return (
-                        <button 
-                            key={ele.id}
-                            onClick={() => changeRoute(ele?.path)}
-                            className={`
+            {admin?.role == "admin" ? (
+                <section className="flex flex-col gap-1 flex-grow">
+                    {sidebarElements_admin.map((ele) => {
+                        const isActive = location.pathname === ele.path; // check if current path matches
+                        return (
+                            <button
+                                key={ele.id}
+                                onClick={() => changeRoute(ele?.path)}
+                                className={`
                                 text-left px-4 py-2 rounded-md transition-all
-                                ${isActive 
-                                    ? "bg-blue-600 text-white font-semibold" 
-                                    : "text-gray-700 hover:bg-gray-100 hover:text-blue-600"
-                                }
+                                ${isActive
+                                        ? "bg-blue-600 text-white font-semibold"
+                                        : "text-gray-700 hover:bg-gray-100 hover:text-blue-600"
+                                    }
                             `}
-                        >
-                            {ele?.name}
-                        </button>
-                    )
-                })}
-            </section>
-            
+                            >
+                                {ele?.name}
+                            </button>
+                        )
+                    })}
+                </section>
+            ) : (
+                <section className="flex flex-col gap-1 flex-grow">
+                    {sidebarElements_employee.map((ele) => {
+                        const isActive = location.pathname === ele.path; // check if current path matches
+                        return (
+                            <button
+                                key={ele.id}
+                                onClick={() => changeRoute(ele?.path)}
+                                className={`
+                                text-left px-4 py-2 rounded-md transition-all
+                                ${isActive
+                                        ? "bg-blue-600 text-white font-semibold"
+                                        : "text-gray-700 hover:bg-gray-100 hover:text-blue-600"
+                                    }
+                            `}
+                            >
+                                {ele?.name}
+                            </button>
+                        )
+                    })}
+                </section>
+            )}
+
             {/* Logout */}
             <section className="pt-6 border-t border-gray-200">
-                <button 
-                onClick={() => handelLogout()}
-                className="w-full px-4 py-2 text-left rounded-md bg-red-50 text-red-600 hover:bg-red-100 active:bg-red-200 transition-colors">
+                <button
+                    onClick={() => handelLogout()}
+                    className="w-full px-4 py-2 text-left rounded-md bg-red-50 text-red-600 hover:bg-red-100 active:bg-red-200 transition-colors">
                     Logout
                 </button>
             </section>

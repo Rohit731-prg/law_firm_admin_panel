@@ -136,7 +136,6 @@ function Dashboard() {
                   <th className="py-3 px-2">Name</th>
                   <th className="py-3 px-2">State</th>
                   <th className="py-3 px-2">District</th>
-                  <th className="py-3 px-2">Police Station</th>
                 </tr>
               </thead>
               <tbody>
@@ -147,7 +146,6 @@ function Dashboard() {
                       <td className="py-3 px-2">{info?.basic_info?.name}</td>
                       <td className="py-3 px-2">{info.state}</td>
                       <td className="py-3 px-2">{info.district}</td>
-                      <td className="py-3 px-2">{info.police_station}</td>
                     </tr>
                   ))
                 ) : (

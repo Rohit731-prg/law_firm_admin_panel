@@ -15,6 +15,7 @@ function Admin() {
         last_name: "",
         email: "",
         phone: "",
+        role: "",
         password: "",
         confirmPassword: "",
         image: null,
@@ -30,6 +31,7 @@ function Admin() {
             first_name: "",
             last_name: "",
             email: "",
+            role: "",
             phone: "",
             password: "",
             confirmPassword: "",
@@ -127,6 +129,17 @@ function Admin() {
                                     }
                                     className="border border-gray-300 px-3 py-2 rounded-lg focus:ring-2 focus:ring-navy-500 outline-none"
                                 />
+                            </div>
+
+                            <div className="flex flex-col">
+                                <label className="text-sm text-gray-600">Select Role</label>
+                                <select 
+                                value={admin.role}
+                                onChange={(e) => setAdmin({ ...admin, role: e.target.value })}
+                                className="border border-gray-300 px-3 py-2 rounded-lg focus:ring-2 focus:ring-navy-500 outline-none">
+                                    <option value="admin">Admin</option>
+                                    <option value="employee">Employee</option>
+                                </select>
                             </div>
 
                             {/* Phone */}
@@ -253,10 +266,11 @@ function Admin() {
                                                 <td className="px-2">{a.name}</td>
                                                 <td className="px-2">{a.phone}</td>
                                                 <td className="px-2">{a.email}</td>
+                                                <td className="px-2">{a.role.toUpperCase()}</td>
                                                 <td className="px-2">
-                                                    <button 
-                                                    onClick={() => handelDelete(a._id)}
-                                                    className="flex items-center gap-1 text-red-600 hover:text-red-800 transition">
+                                                    <button
+                                                        onClick={() => handelDelete(a._id)}
+                                                        className="flex items-center gap-1 text-red-600 hover:text-red-800 transition">
                                                         <MdDelete /> Delete
                                                     </button>
                                                 </td>

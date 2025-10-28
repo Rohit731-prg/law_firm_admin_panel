@@ -3,7 +3,7 @@ export const leadsTable = [
 ];
 
 export const adminTable = [
-    "Image", "Name", "Phone", "Email", "Action"
+    "Image", "Name", "Phone", "Email", "Role", "Action"
 ];
 
 export const usersTable = [

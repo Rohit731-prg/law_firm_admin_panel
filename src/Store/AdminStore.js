@@ -25,6 +25,7 @@ const useAdminStore = create(
                     formData.append("name", admin.first_name + " " + admin.last_name);
                     formData.append("email", admin.email);
                     formData.append("phone", admin.phone);
+                    formData.append("role", admin.role);
                     formData.append("password", admin.password);
                     formData.append("image", admin.image);
 
