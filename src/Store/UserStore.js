@@ -31,7 +31,6 @@ const useUserStore = create((set, get) => ({
 
             // wait for the promise
             const res = await resPromise;
-
             console.log(res.data);
             set({ user: res.data.response });
         } catch (error) {
@@ -47,7 +46,6 @@ const useUserStore = create((set, get) => ({
         formData.append("data", data.data);
         formData.append("file", data.file);
         try {
-            console.log(formData);
             const res = api.put(`user/updateDocs/${id}`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",

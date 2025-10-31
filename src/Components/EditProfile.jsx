@@ -6,6 +6,13 @@ import { Toaster } from "react-hot-toast";
 function EditProfile({ id, setEdit, edit }) {
   const updateDetails = useUserStore((state) => state.updateUserDocs);
 
+  const update = async (data, id) => {
+    await updateDetails(data, id);
+    setTimeout(() => {
+      setEdit(!edit);
+    }, 2000);
+  }
+
   const [data, setData] = useState({
     name: "",
     data: "",
@@ -102,7 +109,7 @@ function EditProfile({ id, setEdit, edit }) {
             Cancel
           </button>
           <button
-            onClick={() => updateDetails(data, id)}
+            onClick={() => update(data, id)}
             className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
           >
             Save
