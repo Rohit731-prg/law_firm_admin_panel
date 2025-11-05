@@ -92,8 +92,8 @@ function Notice() {
                             {bulkSmsButton.map((item, i) => (
                                 <button
                                 onClick={() => sendSMSBulk_function(item.value)}
-                                key={i} 
-                                className="bg-black text-white px-5 py-2 mx-1">
+                                key={i}
+                                className="bg-black text-white px-5 py-2 mx-1 my-1">
                                     {item.name}
                                 </button>
                             ))}

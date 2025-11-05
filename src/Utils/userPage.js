@@ -18,6 +18,6 @@ export const infoTypes = [
     { id: 2, name: "Fire Brigade"},
     { id: 3, name: "Ambulance"},
     { id: 4, name: "Electricity"},
-    { id: 5, name: "Garadge"},
+    { id: 5, name: "Garage"},
     { id: 6, name: "Police Station Number"}           
 ];

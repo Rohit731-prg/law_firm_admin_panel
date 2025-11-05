@@ -15,7 +15,7 @@ function Info() {
   const [infoDetailsState, setInfoDetailsState] = useState({
     state: null,
     district: null,
-    sub_divition: null,
+    sub_division: null,
     police_station: null,
     type: "",
     basic_info: {
@@ -46,7 +46,7 @@ function Info() {
       }
       case "sub_divition": {
         const sub_divitionName = sub_divition.find((sub_divition) => sub_divition.name === id);
-        setInfoDetailsState({ ...infoDetailsState, sub_divition: sub_divitionName.name, police_station: null });
+        setInfoDetailsState({ ...infoDetailsState, sub_division: sub_divitionName.name, police_station: null });
         setPolice_station(sub_divitionName.police_stations);
         break;
       }

@@ -219,7 +219,7 @@ function ListingInfo() {
                                         <td className="py-3 px-2">{info?.basic_info?.address}</td>
                                         <td className="py-3 px-2">{info?.state}</td>
                                         <td className="py-3 px-2">{info?.district}</td>
-                                        <td className="py-3 px-2">{info?.sub_divition}</td>
+                                        <td className="py-3 px-2">{info?.sub_division}</td>
                                         <td className="py-3 px-2">{info?.police_station}</td>
                                         <td className="py-3 px-2">
                                             {info?.createdAt ? new Date(info.createdAt).toISOString().split("T")[0] : ""}
