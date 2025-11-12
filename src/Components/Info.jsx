@@ -57,6 +57,19 @@ function Info() {
     e.preventDefault();
 
     await useInfoStore.getState().createInfo(infoDetailsState);
+    setInfoDetailsState({
+      state: null,
+      district: null,
+      sub_division: null,
+      police_station: null,
+      type: "",
+      basic_info: {
+        name: "",
+        number: "",
+        address: "",
+        pincode: ""
+      }
+    })
   }
 
   return (
