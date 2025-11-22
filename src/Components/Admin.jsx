@@ -267,6 +267,7 @@ function Admin() {
                                                 <td className="px-2">{a.phone}</td>
                                                 <td className="px-2">{a.email}</td>
                                                 <td className="px-2">{a.role.toUpperCase()}</td>
+                                                <td className="px-2">{a.createdAt.split("T")[0]}</td>
                                                 <td className="px-2">
                                                     <button
                                                         onClick={() => handelDelete(a._id)}

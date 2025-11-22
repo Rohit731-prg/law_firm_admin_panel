@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
   const navigate = useNavigate();
-  const { users, leads, sos, infos } = useAdminStore();
-  const { userLists, leadLists, sosLists, infoLists } = useAdminStore();
+  const { users, leads, employee, infos } = useAdminStore();
+  const { userLists, leadLists, employeeLists, infoLists } = useAdminStore();
   const { basicInfo } = useAdminStore();
   const { admin } = useAdminStore();
 
@@ -31,7 +31,7 @@ function Dashboard() {
           {[
             { id: 1, name: "Total User", count: users, icon: "👤" },
             { id: 2, name: "Total Lead", count: leads, icon: "📁" },
-            { id: 3, name: "New SOS", count: sos, icon: "🚨" },
+            { id: 3, name: "Total Employee", count: employee, icon: "👤" },
             { id: 4, name: "Total External", count: infos, icon: "📂" },
           ].map((item) => (
             <div
@@ -82,10 +82,10 @@ function Dashboard() {
           {/* SOS Table */}
           <div className="flex-1 min-w-[400px] bg-white rounded-xl shadow-md p-6">
             <div className="flex justify-between items-center mb-3">
-              <h3 className="text-gray-600 font-semibold text-lg">Recent SOS</h3>
+              <h3 className="text-gray-600 font-semibold text-lg">Recent Employees</h3>
               <button
                 className="px-4 py-2 bg-black text-white rounded-md text-sm hover:bg-gray-800 transition"
-                onClick={() => navigate('/sos')}
+                onClick={() => navigate('/admin')}
               >
                 View All
               </button>
@@ -93,18 +93,20 @@ function Dashboard() {
             <table className="w-full text-left text-sm border-t">
               <thead className="bg-gray-100 text-gray-700 uppercase text-xs border-b">
                 <tr>
+                  <th className='py-3 px-2'>Image</th>
                   <th className="py-3 px-2">Name</th>
-                  <th className="py-3 px-2">Message</th>
-                  <th className="py-3 px-2">Status</th>
+                  <th className="py-3 px-2">Email</th>
+                  <th className="py-3 px-2">Date</th>
                 </tr>
               </thead>
               <tbody>
-                {sosLists?.length ? (
-                  sosLists.map((sos) => (
-                    <tr key={sos._id} className="border-b hover:bg-gray-50">
-                      <td className="py-3 px-2">{sos?.user?.name}</td>
-                      <td className="py-3 px-2">{sos.message}</td>
-                      <td className="py-3 px-2">{sos.status}</td>
+                {employeeLists.length ? (
+                  employeeLists.map((emp) => (
+                    <tr key={emp._id} className="border-b hover:bg-gray-50">
+                      <td className="py-3 px-2"><img src={emp.image} className="w-12 h-12 rounded-full object-cover border border-gray-200" alt="" /></td>
+                      <td className="py-3 px-2">{emp.name}</td>
+                      <td className="py-3 px-2">{emp.email}</td>
+                      <td className="py-3 px-2">{emp.createdAt.split('T')[0]}</td>
                     </tr>
                   ))
                 ) : (

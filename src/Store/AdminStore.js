@@ -11,12 +11,12 @@ const useAdminStore = create(
 
             users: 0,
             leads: 0,
-            sos: 0,
+            employee: 0,
             infos: 0,
 
             userLists: [],
             leadLists: [],
-            sosLists: [],
+            employeeLists: [],
             infoLists: [],
 
             signUp: async (admin) => {
@@ -128,11 +128,11 @@ const useAdminStore = create(
                     set({
                         users: res.data.user,
                         leads: res.data.lead,
-                        sos: res.data.sos,
+                        employee: res.data.total_employee,
                         infos: res.data.external,
                         userLists: res.data.userList,
                         leadLists: res.data.leadList,
-                        sosLists: res.data.sosList,
+                        employeeLists: res.data.employeeList,
                         infoLists: res.data.externalList
                     });
                     console.log(res.data);

@@ -49,7 +49,7 @@ function ListingInfo() {
         await editInfo(selectedItem._id, {
             state: selectedItem.state,
             district: selectedItem.district,
-            sub_divition: selectedItem.sub_divition,
+            sub_division: selectedItem.sub_division,
             police_station: selectedItem.police_station,
             type: selectedItem.type,
             basic_info: {
